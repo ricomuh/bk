@@ -95,7 +95,22 @@ class JadwalPeriksaController extends Controller
 
     public function toggleStatus(JadwalPeriksa $jadwalPeriksa)
     {
+        // jadwal periksa untuk user ini hanya boleh 1 yang aktif, jika ada yang aktif maka nonaktifkan
+        $existingActiveSchedule = JadwalPeriksa::where('id_dokter', auth()->id())
+            ->where('status', true)
+            ->get();
+        // if ($existingActiveSchedule && $existingActiveSchedule->id !== $jadwalPeriksa->id) {
+        if ($existingActiveSchedule) {
+            foreach ($existingActiveSchedule as $schedule) {
+                $schedule->status = false;
+                $schedule->save();
+            }
+        }
+        // Toggle the status of the selected schedule
         $jadwalPeriksa->status = !$jadwalPeriksa->status;
+
+
+        // $jadwalPeriksa->status = !$jadwalPeriksa->status;
         $jadwalPeriksa->save();
 
         return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah.');
