@@ -58,4 +58,18 @@ class ObatController extends Controller
 
         return redirect()->route('dokter.obat.index');
     }
+
+    public function bin()
+    {
+        $obats = Obat::onlyTrashed()->get();
+        return view('dokter.obat.bin', compact('obats'));
+    }
+
+    public function restore($id)
+    {
+        $obat = Obat::withTrashed()->findOrFail($id);
+        $obat->restore();
+
+        return redirect()->route('dokter.obat.bin')->with('success', 'Obat berhasil dipulihkan');
+    }
 }

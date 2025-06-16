@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [ObatController::class, 'edit'])->name('dokter.obat.edit');
             Route::put('/update/{id}', [ObatController::class, 'update'])->name('dokter.obat.update');
             Route::delete('destroy/{id}', [ObatController::class, 'destroy'])->name('dokter.obat.destroy');
+
+            Route::get('/terhapus', [ObatController::class, 'bin'])->name('dokter.obat.bin');
+            Route::patch('/restore/{id}', [ObatController::class, 'restore'])->name('dokter.obat.restore');
         });
 
         Route::prefix('jadwal-periksa')->group(function () {
