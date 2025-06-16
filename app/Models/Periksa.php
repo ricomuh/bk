@@ -22,12 +22,12 @@ class Periksa extends Model
         'tgl_periksa' => 'datetime',
     ];
 
-    public function janjiPeriksa():BelongsTo
+    public function janjiPeriksa(): BelongsTo
     {
         return $this->belongsTo(JanjiPeriksa::class, 'id_janji_periksa');
     }
 
-    public function detailPeriksas():HasMany
+    public function detailPeriksas(): HasMany
     {
         return $this->hasMany(DetailPeriksa::class, 'id_periksa');
     }

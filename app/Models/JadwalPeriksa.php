@@ -19,12 +19,12 @@ class JadwalPeriksa extends Model
         'status'
     ];
 
-    public function dokter() :BelongsTo
+    public function dokter(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_dokter');
     }
 
-    public function janjiPeriksas() :HasMany
+    public function janjiPeriksas(): HasMany
     {
         return $this->hasMany(JanjiPeriksa::class, 'id_jadwal_periksa');
     }
