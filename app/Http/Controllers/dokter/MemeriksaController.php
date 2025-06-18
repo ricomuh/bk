@@ -35,7 +35,8 @@ class MemeriksaController extends Controller
         ]);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $janjiPeriksa = JanjiPeriksa::findOrFail($id);
         $obats = Obat::all();
 
