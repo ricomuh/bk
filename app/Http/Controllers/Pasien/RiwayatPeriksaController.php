@@ -5,12 +5,13 @@ namespace App\Http\Controllers\pasien;
 use App\Models\JanjiPeriksa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RiwayatPeriksaController extends Controller
 {
     public function index()
     {
-        $janjiPeriksa = JanjiPeriksa::where('id_pasien', auth()->user()->id)
+        $janjiPeriksa = JanjiPeriksa::where('id_pasien', Auth::user()->id)
             // where it does have a periksa record
             ->has('periksa')
             ->get();
