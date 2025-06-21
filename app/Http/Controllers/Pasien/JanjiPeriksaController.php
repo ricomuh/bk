@@ -20,10 +20,11 @@ class JanjiPeriksaController extends Controller
             'jadwalPeriksas' => function ($query) {
                 $query->where('status', true);
             },
+            'poli'
         ])
             ->where('role', 'dokter')
             ->get();
-
+        // dd($dokters);
         return view('pasien.janji-periksa.index')->with([
             'no_rm' => $no_rm,
             'dokters' => $dokters,

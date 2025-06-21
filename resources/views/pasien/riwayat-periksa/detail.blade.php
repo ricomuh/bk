@@ -26,7 +26,7 @@
                                         <div class="px-4 py-3 mb-2 border-0 rounded list-group-item bg-light">
                                             <div class="d-flex justify-content-between">
                                                 <span class="text-gray-700">Poliklinik</span>
-                                                <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksa->dokter->poli ?? 'Tidak Diketahui' }}</span>
+                                                <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksa->dokter->poli->nama ?? 'Tidak Diketahui' }}</span>
                                             </div>
                                         </div>
                                         <div class="px-4 py-3 mb-2 border-0 rounded list-group-item bg-light">

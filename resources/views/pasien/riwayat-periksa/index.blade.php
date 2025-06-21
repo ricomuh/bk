@@ -79,7 +79,7 @@
       ] --}}
                             <tr>
                                                          <td class="align-middle text-start">{{ $loop->iteration }}</td>
-                                <td class="align-middle text-start">{{ $janji->jadwalPeriksa->dokter->poli ?? 'N/A' }}</td>
+                                <td class="align-middle text-start">{{ $janji->jadwalPeriksa->dokter->poli->nama ?? 'N/A' }}</td>
                                 <td class="align-middle text-start">{{ $janji->jadwalPeriksa->dokter->nama ?? 'N/A' }}</td>
                                 <td class="align-middle text-start">{{ $janji->jadwalPeriksa->hari ?? 'N/A' }}</td>
                                 <td class="align-middle text-start">{{ $janji->jadwalPeriksa->jam_mulai ?? 'N/A' }}</td>

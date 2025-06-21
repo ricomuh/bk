@@ -11,6 +11,8 @@ class RiwayatPeriksaController extends Controller
     public function index()
     {
         $janjiPeriksa = JanjiPeriksa::where('id_pasien', auth()->user()->id)
+            // where it does have a periksa record
+            ->has('periksa')
             ->get();
 
         // dd($janjiPeriksa);

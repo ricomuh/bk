@@ -13,7 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->removeColumn('poli');
+            // Remove the old 'poli' column
+            $table->dropColumn('poli');
             $table->foreignIdFor(Poli::class)
                 ->nullable()
                 ->constrained();
